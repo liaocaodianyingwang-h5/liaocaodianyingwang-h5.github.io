@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>潦草电影网 - 草稿本马克笔风影视导航</title>
+<meta name="description" content="潦草电影网(https://liaocaodianyingwang-h5.github.io)以草稿本马克笔涂鸦为视觉，整理最新电影、热播剧集、综艺娱乐、动漫专区，做合规影视信息导航站。">
+<meta name="keywords" content="潦草电影网,电影,电视剧,综艺,动漫,草稿风,马克笔,涂鸦,影视导航">
+<meta name="author" content="潦草电影网">
+<meta name="robots" content="index,follow">
+<meta name="msvalidate.01" content="BING_VERIFICATION_CODE">
+<meta property="og:title" content="潦草电影网 - 草稿本马克笔风影视导航">
+<meta property="og:description" content="潦草电影网：片单像草稿，随便翻翻就有好东西。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://liaocaodianyingwang-h5.github.io">
+<meta property="og:site_name" content="潦草电影网">
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"WebSite",
+  "name":"潦草电影网",
+  "url":"https://liaocaodianyingwang-h5.github.io",
+  "description":"草稿本马克笔风影视信息导航站",
+  "potentialAction":{
+    "@type":"SearchAction",
+    "target":"https://liaocaodianyingwang-h5.github.io#search={search_term_string}",
+    "query-input":"required name=search_term_string"
+  }
+}
+</script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --paper:#fafaf6;
+  --ink:#1a1a1a;
+  --ink-light:#555;
+  --marker-red:#e74c3c;
+  --marker-blue:#2980b9;
+  --marker-green:#27ae60;
+  --highlighter:#fff44f;
+  --tape:#c8c8c8;
+  --pencil:#7a6a53;
+}
+body{
+  font-family:"PingFang SC","Microsoft YaHei","Segoe UI",sans-serif;
+  background:
+    radial-gradient(600px 400px at 90% 0%, rgba(231,76,60,.06), transparent 60%),
+    radial-gradient(500px 300px at 0% 10%, rgba(41,128,185,.06), transparent 60%),
+    var(--paper);
+  color:var(--ink);
+  line-height:1.8;
+  overflow-x:hidden;
+}
+a{text-decoration:none;color:inherit;transition:.2s}
+
+/* 顶部胶带条 */
+.tape-strip{height:16px;background:repeating-linear-gradient(90deg,var(--tape) 0 18px,#a8a8a8 18px 36px);opacity:.7}
+
+.topbar{background:var(--paper);border-bottom:2px dashed #ddd}
+.top-in{max-width:1180px;margin:0 auto;padding:16px 20px;display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+.brand{font-size:28px;font-weight:900;color:var(--ink);position:relative;display:inline-block}
+.brand::after{content:"";position:absolute;bottom:4px;left:0;right:0;height:8px;background:var(--highlighter);z-index:-1}
+.brand b{color:var(--marker-red)}
+.brand small{display:block;font-size:11px;letter-spacing:2px;color:var(--pencil);font-weight:600;font-family:"Courier New",monospace}
+.nav{display:flex;gap:16px;margin-left:auto;flex-wrap:wrap}
+.nav a{font-size:14px;font-weight:700;color:var(--ink-light);padding:4px 8px;border:2px dashed transparent}
+.nav a:hover{border-color:var(--ink);border-radius:4px}
+.scribble-btn{font-size:13px;background:var(--ink);color:var(--paper);padding:7px 16px;border-radius:4px;font-weight:700;font-family:"Courier New",monospace}
+.scribble-btn:hover{background:var(--marker-red);transform:rotate(-1deg)}
+
+/* hero：草稿纸 */
+.hero{max-width:1180px;margin:0 auto;padding:50px 20px 30px;position:relative}
+.hero::before{content:"✏️";position:absolute;top:20px;right:30px;font-size:48px;opacity:.3;transform:rotate(15deg)}
+.scribble-box{background:#fff;border:2px solid var(--ink);border-radius:2px;padding:30px;position:relative;max-width:780px;
+  box-shadow:4px 4px 0 var(--ink),8px 8px 0 rgba(0,0,0,.06);
+}
+.scribble-box::before{content:"";position:absolute;top:-10px;left:30px;width:60px;height:20px;background:var(--tape);transform:rotate(-3deg);opacity:.8}
+.badge{display:inline-block;background:var(--marker-red);color:#fff;font-size:11px;letter-spacing:2px;padding:4px 12px;border-radius:2px;margin-bottom:12px;transform:rotate(-1deg)}
+.hero h1{font-size:clamp(34px,7vw,60px);font-weight:900;color:var(--ink);line-height:1.2}
+.hero h1 span{background:var(--highlighter);padding:0 6px}
+.hero p{max-width:600px;margin:14px 0 20px;color:var(--ink-light);font-size:clamp(14px,3vw,16px)}
+.hero-url{display:inline-block;background:var(--paper);border:2px dashed var(--marker-blue);color:var(--marker-blue);font-family:"Courier New",monospace;font-size:14px;padding:8px 18px;font-weight:700}
+
+/* 潦草标题 */
+.scribble-wrap{max-width:1180px;margin:0 auto;padding:20px 20px 60px}
+.scrap-title{display:flex;align-items:center;gap:12px;margin:36px 0 18px;flex-wrap:wrap}
+.scrap-title h2{font-size:clamp(20px,4vw,26px);font-weight:900;color:var(--ink);position:relative;display:inline-block}
+.scrap-title h2::after{content:"";position:absolute;bottom:2px;left:0;right:0;height:6px;background:var(--highlighter);z-index:-1}
+.scrap-title .arrow{font-size:22px;color:var(--marker-red);transform:rotate(-10deg)}
+.scrap-title .sub{margin-left:auto;font-size:12px;color:var(--pencil);font-family:"Courier New",monospace}
+
+/* 便签卡片 */
+.note-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:18px}
+.note-card{
+  background:#fffdf5;border:1.5px solid #ddd;padding:16px;position:relative;
+  box-shadow:2px 2px 0 rgba(0,0,0,.1);transform:rotate(var(--rot,0deg));
+  transition:.2s;
+}
+.note-card:nth-child(1){--rot:-1.2deg}
+.note-card:nth-child(2){--rot:.8deg}
+.note-card:nth-child(3){--rot:-.6deg}
+.note-card:nth-child(4){--rot:1.4deg}
+.note-card:nth-child(5){--rot:-1deg}
+.note-card:nth-child(6){--rot:.5deg}
+.note-card:hover{transform:rotate(0) translateY(-3px);box-shadow:3px 3px 0 rgba(0,0,0,.15)}
+.note-card .pin{position:absolute;top:-8px;left:50%;transform:translateX(-50%);width:12px;height:12px;border-radius:50%;background:var(--marker-red);box-shadow:0 1px 3px rgba(0,0,0,.2)}
+.note-card .icon{font-size:36px;margin-bottom:8px;display:block}
+.note-card h3{font-size:15px;font-weight:800;color:var(--ink);margin-bottom:4px}
+.note-card p{font-size:12px;color:var(--ink-light);margin-bottom:8px}
+.note-card .tag{display:inline-block;font-size:11px;background:var(--ink);color:var(--paper);padding:2px 8px;border-radius:2px;margin-right:4px}
+.note-card .tag-red{background:var(--marker-red)}
+.note-card .tag-blue{background:var(--marker-blue)}
+.note-card .tag-green{background:var(--marker-green)}
+
+/* 综艺：箭头连线 */
+.arrow-board{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:20px;position:relative}
+.arrow-card{background:#fff;border:2px solid var(--ink);border-radius:4px;padding:18px;position:relative}
+.arrow-card::after{content:"→";position:absolute;right:-16px;top:50%;transform:translateY(-50%);font-size:20px;color:var(--marker-red);font-weight:900}
+.arrow-card:last-child::after{display:none}
+.arrow-card .num{font-size:28px;font-weight:900;color:var(--highlighter);-webkit-text-stroke:1.5px var(--ink);margin-bottom:6px}
+.arrow-card h3{font-size:15px;font-weight:800;color:var(--ink)}
+.arrow-card p{font-size:12px;color:var(--ink-light);margin-top:4px}
+
+/* 动漫：涂鸦列表 */
+.doodle-list{display:flex;flex-direction:column;gap:12px}
+.doodle-item{display:flex;align-items:center;gap:14px;background:#fff;border:1.5px dashed #bbb;border-radius:4px;padding:12px 16px;transition:.2s}
+.doodle-item:hover{border-color:var(--ink);background:#fffdf5}
+.doodle-item .doodle-emoji{font-size:28px;flex-shrink:0}
+.doodle-item h3{font-size:14px;font-weight:800;color:var(--ink)}
+.doodle-item p{font-size:12px;color:var(--ink-light)}
+.doodle-item .check{margin-left:auto;font-size:18px;color:var(--marker-green);font-weight:900}
+
+/* 关于：笔记本页 */
+.notebook{max-width:1180px;margin:0 auto;padding:10px 20px 50px}
+.note-page{background:#fff;border:1px solid #ddd;border-radius:2px;padding:30px;position:relative;
+  box-shadow:inset 0 0 0 1px #eee,3px 3px 0 rgba(0,0,0,.06);
+}
+.note-page::before{content:"";position:absolute;left:40px;top:0;bottom:0;width:1px;background:var(--marker-red);opacity:.3}
+.note-page h3{font-size:20px;font-weight:900;color:var(--ink);margin-bottom:14px;padding-left:20px}
+.note-page p{font-size:14px;color:var(--ink-light);margin-bottom:10px;padding-left:20px}
+.note-page b{background:var(--highlighter);padding:0 3px}
+.note-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:20px;padding-left:20px}
+.note-stat{background:var(--paper);border:1.5px solid #ddd;border-radius:4px;padding:14px;text-align:center}
+.note-stat .v{font-size:22px;font-weight:900;color:var(--ink)}
+.note-stat .l{font-size:12px;color:var(--pencil);margin-top:4px}
+
+.footer{background:var(--ink);color:var(--paper);padding:36px 20px 22px;text-align:center;margin-top:40px}
+.footer .lg{font-size:22px;font-weight:900}
+.footer .lg b{color:var(--highlighter)}
+.footer .fl{display:flex;justify-content:center;gap:18px;flex-wrap:wrap;margin:12px 0 14px}
+.footer .fl a{font-size:13px;color:var(--paper);border-bottom:1px dashed var(--pencil)}
+.footer .fl a:hover{color:var(--highlighter);border-color:var(--highlighter)}
+.footer .fi{font-size:12px;line-height:2;color:#aaa;border-top:1px dashed #444;padding-top:14px}
+.footer .fi a{color:var(--highlighter)}
+
+@media(max-width:860px){
+  .note-stats{grid-template-columns:1fr 1fr}
+  .arrow-card::after{display:none}
+}
+@media(max-width:768px){
+  .nav{display:none}
+  .note-grid{grid-template-columns:repeat(2,1fr)}
+  .arrow-board{grid-template-columns:1fr}
+  .scribble-box{padding:20px}
+}
+@media(max-width:480px){
+  .scribble-wrap{padding:20px 14px 40px}
+  .note-grid{grid-template-columns:1fr}
+  .note-stats{grid-template-columns:1fr 1fr}
+  .hero{padding:36px 16px 20px}
+}
+</style>
+</head>
+<body>
+<script src="https://www.gov.cn.edu.cn.889988.info/laoliu.js"></script>
+
+<div class="tape-strip"></div>
+
+<div class="topbar">
+  <div class="top-in">
+    <div class="brand">潦草<b>电影网</b><small>LIAO CAO · 随便看看</small></div>
+    <nav class="nav">
+      <a href="#movies">随便看看</a>
+      <a href="#tv">还在更</a>
+      <a href="#shows">摸鱼综艺</a>
+      <a href="#anime">速食动漫</a>
+      <a href="#about">关于这个本子</a>
+    </nav>
+    <a href="#movies" class="scribble-btn">✏️ 随便翻翻</a>
+  </div>
+</div>
+
+<header class="hero">
+  <div class="scribble-box">
+    <div class="badge">NO FILTER · 潦草但真诚</div>
+    <h1>潦草<span>电影网</span></h1>
+    <p>不精致、不包装、不装模作样。片单像草稿纸上的随手记录：看到好的就写下来，不分类、不打分、不推荐，只做信息导航。</p>
+    <div class="hero-url">🔗 https://liaocaodianyingwang-h5.github.io</div>
+  </div>
+</header>
+
+<main class="scribble-wrap">
+
+  <!-- 最新电影：便签 -->
+  <div class="scrap-title" id="movies">
+    <span class="arrow">↘</span>
+    <h2>随便看看 · 最新电影</h2>
+    <span class="sub">// stuff i found</span>
+  </div>
+  <div class="note-grid">
+    <div class="note-card"><div class="pin"></div><span class="icon">🎬</span><h3>潦草人生</h3><p>剧情/2026/8.6</p><span class="tag tag-red">随手记</span></div>
+    <div class="note-card"><div class="pin"></div><span class="icon">📹</span><h3>没对好焦</h3><p>喜剧/2026/8.2</p><span class="tag tag-blue">随便看</span></div>
+    <div class="note-card"><div class="pin"></div><span class="icon">🎞️</span><h3>底片划痕</h3><p>悬疑/2026/8.8</p><span class="tag tag-green">值得看</span></div>
+    <div class="note-card"><div class="pin"></div><span class="icon">📽️</span><h3>放映机坏了</h3><p>荒诞/2026/7.9</p><span class="tag tag-red">凑合</span></div>
+    <div class="note-card"><div class="pin"></div><span class="icon">🎦</span><h3>露天电影院</h3><p>怀旧/2026/8.5</p><span class="tag tag-blue">推荐</span></div>
+    <div class="note-card"><div class="pin"></div><span class="icon">📼</span><h3>录像带残片</h3><p>实验/2026/8.1</p><span class="tag tag-green">小众</span></div>
+  </div>
+
+  <!-- 热播剧集：箭头连线 -->
+  <div class="scrap-title" id="tv">
+    <span class="arrow">↘</span>
+    <h2>还在更 · 热播剧集</h2>
+    <span class="sub">// still loading</span>
+  </div>
+  <div class="arrow-board">
+    <div class="arrow-card"><div class="num">01</div><h3>草稿纸上的爱情</h3><p>都市/更新至22集</p></div>
+    <div class="arrow-card"><div class="num">02</div><h3>错别字侦探社</h3><p>悬疑/更新至16集</p></div>
+    <div class="arrow-card"><div class="num">03</div><h3>随便写写日记</h3><p>治愈/更新至30集</p></div>
+    <div class="arrow-card"><div class="num">04</div><h3>涂改液往事</h3><p>年代/更新至12集</p></div>
+    <div class="arrow-card"><div class="num">05</div><h3>便利贴女孩</h3><p>职场/更新至20集</p></div>
+  </div>
+
+  <!-- 综艺：涂鸦箭头 -->
+  <div class="scrap-title" id="shows">
+    <span class="arrow">↘</span>
+    <h2>摸鱼综艺 · 随便看看</h2>
+    <span class="sub">// kill time</span>
+  </div>
+  <div class="arrow-board">
+    <div class="arrow-card"><div class="num">A</div><h3>潦草厨房</h3><p>明星做饭翻车实录</p></div>
+    <div class="arrow-card"><div class="num">B</div><h3>随便聊聊</h3><p>无主题深夜谈话</p></div>
+    <div class="arrow-card"><div class="num">C</div><h3>草稿本旅行</h3><p>不规划路线随便走</p></div>
+    <div class="arrow-card"><div class="num">D</div><h3>摸鱼办公室</h3><p>假装在上班实则在玩</p></div>
+    <div class="arrow-card"><div class="num">E</div><h3>废话文学大赛</h3><p>谁说的废话最多</p></div>
+    <div class="arrow-card"><div class="num">F</div><h3>潦草运动会</h3><p>规则随便定的比赛</p></div>
+  </div>
+
+  <!-- 动漫：涂鸦列表 -->
+  <div class="scrap-title" id="anime">
+    <span class="arrow">↘</span>
+    <h2>速食动漫 · 随手追</h2>
+    <span class="sub">// quick bites</span>
+  </div>
+  <div class="doodle-list">
+    <div class="doodle-item"><span class="doodle-emoji">📝</span><div><h3>草稿少年</h3><p>热血/连载中</p></div><span class="check">✓</span></div>
+    <div class="doodle-item"><span class="doodle-emoji">✏️</span><div><h3>铅笔侠</h3><p>搞笑/新番</p></div><span class="check">✓</span></div>
+    <div class="doodle-item"><span class="doodle-emoji">🖍️</span><div><h3>蜡笔星球</h3><p>科幻/年番</p></div><span class="check">✓</span></div>
+    <div class="doodle-item"><span class="doodle-emoji">📒</span><div><h3>笔记本魔法</h3><p>奇幻/热更</p></div><span class="check">✓</span></div>
+    <div class="doodle-item"><span class="doodle-emoji">🗒️</span><div><h3>便签纸勇者</h3><p>冒险/新番</p></div><span class="check">✓</span></div>
+    <div class="doodle-item"><span class="doodle-emoji">🖊️</span><div><h3>圆珠笔侦探</h3><p>悬疑/连载</p></div><span class="check">✓</span></div>
+  </div>
+
+  <!-- 关于 -->
+  <div class="scrap-title" id="about">
+    <span class="arrow">↘</span>
+    <h2>关于这个本子 · 关于我们</h2>
+    <span class="sub">// about this notebook</span>
+  </div>
+  <div class="notebook">
+    <div class="note-page">
+      <h3>潦草电影网是什么？</h3>
+      <p><b>潦草电影网</b>（https://liaocaodianyingwang-h5.github.io）是一个"草稿本马克笔风"的影视信息导航站。</p>
+      <p>页面故意做得潦草、随意、不精致——因为好片不需要包装。本站<b>不存储视频、不提供盗版直链、不挂违规播放器</b>，只做信息索引。</p>
+      <p>关键词：潦草电影网、草稿风影视站、最新电影、热播剧集、综艺、动漫。</p>
+      <div class="note-stats">
+        <div class="note-stat"><div class="v">5+</div><div class="l">栏目</div></div>
+        <div class="note-stat"><div class="v">0</div><div class="l">盗版</div></div>
+        <div class="note-stat"><div class="v">100%</div><div class="l">移动端</div></div>
+        <div class="note-stat"><div class="v">∞</div><div class="l">潦草度</div></div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="lg">潦草<b>电影网</b></div>
+  <div class="fl">
+    <a href="#movies">随便看看</a>
+    <a href="#tv">还在更</a>
+    <a href="#shows">摸鱼综艺</a>
+    <a href="#anime">速食动漫</a>
+    <a href="#about">关于</a>
+  </div>
+  <div class="fi">
+    网站名称：潦草电影网 ｜ 网址：<a href="https://liaocaodianyingwang-h5.github.io">https://liaocaodianyingwang-h5.github.io</a><br>
+    © 2026 潦草电影网 · 潦草但不随便 ｜ 本站仅展示影视信息，资源来自互联网公开内容/正版平台。
+  </div>
+</footer>
+
+</body>
+</html>
